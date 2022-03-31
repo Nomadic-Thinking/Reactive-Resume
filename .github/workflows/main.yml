@@ -1,4 +1,4 @@
-name: CICD - Workflow
+name: CICD - Workflow2
 on:
   push:
     branches: [ main ]
@@ -20,4 +20,4 @@ jobs:
 
       - name: Deployment
         run: |
-          ssh $SERVER_USER@$SERVER_IP bash /root/test.sh $BRANCH_NAME
+          ssh $SERVER_USER@$SERVER_IP bash /root/deployment.sh $BRANCH_NAME
