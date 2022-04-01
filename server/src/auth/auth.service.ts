@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { SchedulerRegistry } from '@nestjs/schedule';
 import bcrypt from 'bcrypt';
+import { randomInt } from 'crypto';
 import { google } from 'googleapis';
 
 import { PostgresErrorCode } from '@/database/errorCodes.enum';
@@ -23,7 +24,7 @@ export class AuthService {
   ) {}
 
   async register(registerDto: RegisterDto) {
-    const hashedPassword = await bcrypt.hash(registerDto.password, 10);
+    const hashedPassword = await bcrypt.hash(registerDto.password, randomInt(8, 12));
 
     try {
       const createdUser = await this.usersService.create({
@@ -74,7 +75,7 @@ export class AuthService {
 
   async resetPassword(resetPasswordDto: ResetPasswordDto) {
     const user = await this.usersService.findByResetToken(resetPasswordDto.resetToken);
-    const hashedPassword = await bcrypt.hash(resetPasswordDto.password, 10);
+    const hashedPassword = await bcrypt.hash(resetPasswordDto.password, randomInt(8, 12));
 
     await this.usersService.update(user.id, {
       password: hashedPassword,

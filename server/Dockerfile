@@ -1,4 +1,4 @@
-FROM node:16-alpine as dependencies
+FROM node:17-alpine as dependencies
 
 RUN apk add --no-cache g++ curl make python3 \
   && curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
@@ -11,7 +11,7 @@ COPY ./server/package.json ./server/package.json
 
 RUN pnpm install --frozen-lockfile
 
-FROM node:16-alpine as builder
+FROM node:17-alpine as builder
 
 RUN apk add --no-cache g++ curl make python3 \
   && curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
@@ -46,5 +46,8 @@ COPY --from=builder /app/server/dist ./server/dist
 EXPOSE 3100
 
 ENV PORT 3100
+
+HEALTHCHECK --interval=30s --timeout=20s --retries=3 --start-period=15s \
+    CMD curl -fSs localhost:3100/health || exit 1
 
 CMD [ "pnpm", "run", "start:server" ]
