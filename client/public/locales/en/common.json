@@ -6,8 +6,8 @@
     }
   },
   "footer": {
-    "credit": "A passion project by <1>Amruth Pillai</1>",
-    "license": "By the community, for the community."
+    "credit": "A part of <1>IT Career Switching</1>",
+    "license": ""
   },
   "markdown": {
     "help-text": "This section supports <1>markdown</1> formatting."
@@ -16,7 +16,7 @@
     "present": "Present"
   },
   "subtitle": "A free and open source resume builder.",
-  "title": "Reactive Resume",
+  "title": "IT Career Switching - Resume Builder",
   "toast": {
     "error": {
       "upload-file-size": "Please upload only files under 2 megabytes.",
