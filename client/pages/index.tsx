@@ -124,7 +124,7 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} style="display:none">
         <h6>{t('landing.testimonials.heading')}</h6>
 
         <p className="my-3">
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
         </Masonry>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} style="display:none">
         <h6>{t('landing.links.heading')}</h6>
 
         <div>
@@ -179,7 +179,7 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.section} style="display:none">
         <a href={DIGITALOCEAN_URL} target="_blank" rel="noreferrer">
           <Image src="/images/sponsors/digitalocean.svg" alt="Powered By DigitalOcean" width={200} height={40} />
         </a>
