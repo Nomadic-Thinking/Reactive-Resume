@@ -1,4 +1,4 @@
-name: CICD - Workflow2
+name: CICD - Workflow
 on:
   push:
     branches: [ main ]
