@@ -8,13 +8,13 @@
   "features": {
     "heading": "Features",
     "list": {
-      "ads": "No Advertising",
-      "export": "Export your resume to JSON or PDF format",
-      "free": "Free, forever",
-      "import": "Import data from LinkedIn, JSON Resume",
+      "ads": "Professional Resume that outstands",
+      "export": "Export your resume to PDF",
+      "free": "No  subscriptions, forever accessible",
+      "import": "Import data directly from LinkedIn",
       "languages": "Accessible in multiple languages",
-      "more": "And much more exciting features, <1>read all about it here</1>",
-      "tracking": "No User Tracking"
+      "more": "Part of, <1>IT Career Switching</1>",
+      "tracking": "Share your resume online with a link"
     }
   },
   "links": {
