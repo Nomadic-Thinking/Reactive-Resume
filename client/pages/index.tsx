@@ -21,6 +21,8 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setModalState } from '@/store/modal/modalSlice';
 import styles from '@/styles/pages/Home.module.scss';
 
+import { DIGITALOCEAN_URL, DONATION_URL, GITHUB_URL } from '../constants';
+
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
@@ -99,6 +101,14 @@ const Home: NextPage = () => {
           <li>{t('landing.features.list.languages')}</li>
           <li>{t('landing.features.list.import')}</li>
           <li>{t('landing.features.list.export')}</li>
+          <!-- <li>
+            <Trans t={t} i18nKey="landing.features.list.more">
+              And a lot of exciting features,
+              <a href={`${GITHUB_URL}#features`} target="_blank" rel="noreferrer">
+                click here to know more
+              </a>
+            </Trans>
+          </li> //-->
         </ul>
       </section>
 
@@ -113,6 +123,67 @@ const Home: NextPage = () => {
           ))}
         </div>
       </section>
+
+    <!--  <section className={styles.section}>
+        <h6>{t('landing.testimonials.heading')}</h6>
+
+        <p className="my-3">
+          <Trans t={t} i18nKey="landing.testimonials.body">
+            Good or bad, I would love to hear your opinion on Reactive Resume and how the experience has been for you.
+            <br />
+            Here are some of the messages sent in by users across the world.
+          </Trans>
+        </p>
+
+        <p className="my-3">
+          <Trans t={t} i18nKey="landing.testimonials.contact">
+            You can reach out to me through <a href="mailto:im.amruth@gmail.com">my email</a> or through the contact
+            form on <a href="https://www.amruthpillai.com">my website</a>.
+          </Trans>
+        </p>
+
+        <Masonry columns={{ xs: 1, sm: 2, lg: 4 }} spacing={2}>
+          {testimonials.map(({ name, message }, index) => (
+            <Testimony key={index} name={name} message={message} />
+          ))}
+        </Masonry>
+      </section>
+
+      <section className={styles.section}>
+        <h6>{t('landing.links.heading')}</h6>
+
+        <div>
+          <Link href="/meta/privacy" passHref>
+            <Button variant="text" startIcon={<LinkIcon />}>
+              {t('landing.links.links.privacy')}
+            </Button>
+          </Link>
+
+          <Link href="/meta/service" passHref>
+            <Button variant="text" startIcon={<LinkIcon />}>
+              {t('landing.links.links.service')}
+            </Button>
+          </Link>
+
+          <a href={GITHUB_URL} target="_blank" rel="noreferrer">
+            <Button variant="text" startIcon={<LinkIcon />}>
+              {t('landing.links.links.github')}
+            </Button>
+          </a>
+
+          <a href={DONATION_URL} target="_blank" rel="noreferrer">
+            <Button variant="text" startIcon={<LinkIcon />}>
+              {t('landing.links.links.donate')}
+            </Button>
+          </a>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <a href={DIGITALOCEAN_URL} target="_blank" rel="noreferrer">
+          <Image src="/images/sponsors/digitalocean.svg" alt="Powered By DigitalOcean" width={200} height={40} />
+        </a>
+      </section> //-->
 
       <footer>
         <div className={styles.version}>
