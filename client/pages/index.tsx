@@ -99,14 +99,6 @@ const Home: NextPage = () => {
           <li>{t('landing.features.list.languages')}</li>
           <li>{t('landing.features.list.import')}</li>
           <li>{t('landing.features.list.export')}</li>
-          <li>
-            <Trans t={t} i18nKey="landing.features.list.more">
-              And a lot of exciting features,
-              <a href={`${GITHUB_URL}#features`} target="_blank" rel="noreferrer">
-                click here to know more
-              </a>
-            </Trans>
-          </li>
         </ul>
       </section>
 
