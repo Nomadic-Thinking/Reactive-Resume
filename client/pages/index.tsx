@@ -21,8 +21,6 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setModalState } from '@/store/modal/modalSlice';
 import styles from '@/styles/pages/Home.module.scss';
 
-import { DIGITALOCEAN_URL, DONATION_URL, GITHUB_URL } from '../constants';
-
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
