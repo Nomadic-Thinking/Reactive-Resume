@@ -1,5 +1,4 @@
-import { DarkMode, LightMode, Link as LinkIcon } from '@mui/icons-material';
-import { Masonry } from '@mui/lab';
+import { DarkMode, LightMode } from '@mui/icons-material';
 import { Button, IconButton } from '@mui/material';
 import type { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
