@@ -7,6 +7,7 @@ jobs:
   client:
     runs-on: ubuntu-latest
     env:
+      BRANCH_NAME: ${{ github.ref_name }}
       SERVER_USER: ${{ secrets.SERVER_USER }}
       SERVER_IP: ${{ secrets.SERVER_IP }}
       
@@ -33,11 +34,16 @@ jobs:
           file: client/Dockerfile
           push: true
           tags: nomadicthinking/reactive-resume-client:latest
+          
+      - name: Deployment
+        run: |
+          ssh $SERVER_USER@$SERVER_IP bash /root/deployment.sh $BRANCH_NAME client
 
 
   server:
     runs-on: ubuntu-latest
     env:
+      BRANCH_NAME: ${{ github.ref_name }}
       SERVER_USER: ${{ secrets.SERVER_USER }}
       SERVER_IP: ${{ secrets.SERVER_IP }}
       
@@ -64,13 +70,7 @@ jobs:
           file: server/Dockerfile
           push: true
           tags: nomadicthinking/reactive-resume-server:latest
-
-      
-  deployment:
-    runs-on: ubuntu-latest
-    env:
-      BRANCH_NAME: ${{ github.ref_name }}
-    steps:
+          
       - name: Deployment
         run: |
-          ssh $SERVER_USER@$SERVER_IP bash /root/deployment.sh $BRANCH_NAME
+          ssh $SERVER_USER@$SERVER_IP bash /root/deployment.sh $BRANCH_NAME server
