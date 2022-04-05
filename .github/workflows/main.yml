@@ -7,7 +7,6 @@ jobs:
   client:
     runs-on: ubuntu-latest
     env:
-      BRANCH_NAME: ${{ github.ref_name }}
       SERVER_USER: ${{ secrets.SERVER_USER }}
       SERVER_IP: ${{ secrets.SERVER_IP }}
       
@@ -39,7 +38,6 @@ jobs:
   server:
     runs-on: ubuntu-latest
     env:
-      BRANCH_NAME: ${{ github.ref_name }}
       SERVER_USER: ${{ secrets.SERVER_USER }}
       SERVER_IP: ${{ secrets.SERVER_IP }}
       
@@ -69,7 +67,10 @@ jobs:
 
       
   deployment:
-
-    - name: Deployment
+    runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ${{ github.ref_name }}
+    steps:
+      - name: Deployment
         run: |
           ssh $SERVER_USER@$SERVER_IP bash /root/deployment.sh $BRANCH_NAME
